@@ -180,7 +180,9 @@ const removeUpdates = async () => {
 		.catch((err) => {
 			console.log(err);
 		});
-	await bot.setWebHook({ url: "https://yt-2-mp3.vercel.app/api/webhook" });
+	await bot.setWebHook({
+		url: "https://telegram-yt2-mp3-bot-new.vercel.app/api/webhook",
+	});
 };
 
 export {
