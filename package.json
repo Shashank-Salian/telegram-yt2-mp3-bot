@@ -1,0 +1,16 @@
+{
+	"name": "yt-2-mp3-new",
+	"version": "0.0.1",
+	"description": "",
+	"main": "webhook.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"node-telegram-bot-api": "^0.59.0"
+	}
+}
