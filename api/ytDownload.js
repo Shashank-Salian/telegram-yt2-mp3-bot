@@ -35,12 +35,18 @@ const sendYtAudio = async (msg) => {
 	try {
 		sentMsg = await sendMessage(msg, "Downloading...");
 		const res = await getAudioInfo(msg.text);
+		console.log("YT Request complete");
 		if (res.status === "ok") {
+			console.log("YT Request successful");
+			console.log("YT Sending audio file...");
 			await sendAudioFile(msg, res.link);
 			return;
 		}
 		await editMessage(sentMsg, "Wrong Link, or API error!");
+		console.log("Couldn't send audio...");
+		console.log(res);
 	} catch (err) {
+		console.log("Send YT Audio :");
 		console.log(err);
 		await editMessage(sentMsg, "Something went wrong..!");
 		return;

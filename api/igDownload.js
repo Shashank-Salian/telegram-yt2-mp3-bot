@@ -25,7 +25,7 @@ const getMediaInfo = async (link) => {
  * @returns {boolean}
  */
 const isImage = (link) => {
-	return link.includes(".jpg?");
+	return link.includes(".jpg?") || link.includes(".webp?");
 };
 
 /**
@@ -79,21 +79,28 @@ const recognizeAndSend = (media, msg) => {
 const sendIgMedia = async (msg) => {
 	let sentMsg;
 	try {
-		sentMsg = sendMessage(msg, "Downloading...");
+		sentMsg = await sendMessage(msg, "Downloading...");
+		console.log("IG getting info...");
 		let res = await getMediaInfo(msg.text);
+		console.log("IG Media info recieved");
 		// Check if it's a story
 		if (Array.isArray(res)) {
+			console.log("IG It's a story");
 			if (res[0].type === "Image") {
+				console.log("IG Sending Image...");
 				await sendPhoto(msg, res[0].media);
 				return;
 			}
+			console.log("IG sending Video...");
 			await sendVideoFile(msg, res[0].media);
 			return;
 		}
 		if (res.Type !== "Carousel") {
-			recognizeAndSend(res.media);
+			console.log("IG sending reel, post media...");
+			recognizeAndSend(res.media, msg);
 			return;
 		}
+		console.log("IG sending Carousel");
 		/**
 		 * @type {string[]}
 		 */

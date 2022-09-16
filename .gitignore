@@ -1,3 +1,4 @@
 /node_modules
 /myDat
 package-lock.json
+.vercel
