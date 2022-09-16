@@ -5,7 +5,7 @@ import {
 	sendMessage,
 	sendPhoto,
 	sendVideoFile,
-} from "./helpers";
+} from "./helpers.js";
 
 /**
  *

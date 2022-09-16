@@ -1,5 +1,5 @@
 import TelegramBot from "node-telegram-bot-api";
-import { editMessage, fetch, sendAudioFile, sendMessage } from "./helpers";
+import { editMessage, fetch, sendAudioFile, sendMessage } from "./helpers.js";
 
 /**
  *
